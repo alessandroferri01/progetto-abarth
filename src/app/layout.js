@@ -12,8 +12,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Dona per le Abartha 🩵🤍",
-  description: "Dona per le Abartha",
+  title: "Dona per le Abarth 🩵🤍",
+  description: "Dona per le Abarth",
 };
 
 export default function RootLayout({ children }) {
