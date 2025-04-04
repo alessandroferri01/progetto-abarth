@@ -1,6 +1,24 @@
-// File: pages/index.js
+'use client'
+
 import React from "react";
 import Image from "next/image";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
+
+const data = [
+  { month: "Aprile", crescita: 0 },
+  { month: "Maggio", crescita: 20 },
+  { month: "Giugno", crescita: 100 },
+  { month: "Luglio", crescita: 150 },
+  { month: "Agosto", crescita: 300 },
+];
 
 export default function LandingPage() {
   return (
@@ -14,6 +32,24 @@ export default function LandingPage() {
         <a href="#progress" className="text-lg px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-800 to-black text-white hover:from-blue-400 hover:to-gray-800 transition">
           Dona Ora
         </a>
+      </section>
+
+      <section className="bg-white text-black py-16 px-4">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-8">Proiezione Crescita Donazioni</h2>
+          <ResponsiveContainer width="100%" height={300}>
+            <LineChart data={data} margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="month" />
+              <YAxis />
+              <Tooltip />
+              <Line type="monotone" dataKey="crescita" stroke="#22c55e" strokeWidth={3} />
+            </LineChart>
+          </ResponsiveContainer>
+          <p className="text-center text-sm text-gray-600 mt-4">
+            Se la crescita continua così, potremmo superare i €25.000 entro agosto 2025.
+          </p>
+        </div>
       </section>
 
       <section className="bg-white text-black py-16 px-4">
